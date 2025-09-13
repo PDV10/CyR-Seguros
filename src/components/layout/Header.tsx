@@ -10,7 +10,8 @@ import {
   MenuList,
 } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
+import { NAV_ITEMS } from "../../config/navigation";
 
 export default function Header() {
   return (
@@ -19,44 +20,57 @@ export default function Header() {
       align="center"
       px={{ base: 4, md: 6 }}
       mx="auto"
-      maxW="1200px"
+      maxW="1400px"
       justify="space-between"
     >
-      <HStack as={Link} to="/" spacing={3}>
+      <Flex as={Link} to="/" align="center">
         <Image
-          src="/public/cyr-logo.png"
+          src="/cyr-logo.png"
           alt="Logo"
-          boxSize="100px"
-          borderRadius="md"
+          h="64px"
+          w="auto"
+          maxH="100%"
+          objectFit="contain"
         />
-      </HStack>
+      </Flex>
 
       <HStack spacing={4}>
-        <ChakraLink as={NavLink} to="/" _hover={{ textDecor: "none" }}>
-          Home
-        </ChakraLink>
+        {NAV_ITEMS.filter((item) => !item.hidden).map((item) => {
+          if (item.submenu) {
+            return (
+              <Menu key={item.name}>
+                <MenuButton
+                  as={Button}
+                  variant="ghost"
+                  rightIcon={<ChevronDownIcon />}
+                >
+                  {item.name}
+                </MenuButton>
+                <MenuList>
+                  {item.submenu
+                    .filter((sub) => !sub.hidden)
+                    .map((sub) => (
+                      <MenuItem as={NavLink} key={sub.name} to={sub.to!}>
+                        {sub.name}
+                      </MenuItem>
+                    ))}
+                </MenuList>
+              </Menu>
+            );
+          }
 
-        <Menu>
-          <MenuButton
-            as={Button}
-            variant="ghost"
-            rightIcon={<ChevronDownIcon />}
-          >
-            Servicios
-          </MenuButton>
-          <MenuList>
-            <MenuItem as={NavLink} to="/servicios">
-              Todos los servicios
-            </MenuItem>
-            <MenuItem as={NavLink} to="/servicios/seguros-auto">
-              Seguros de Auto
-            </MenuItem>
-          </MenuList>
-        </Menu>
-
-        <ChakraLink as={NavLink} to="/about" _hover={{ textDecor: "none" }}>
-          Nosotros
-        </ChakraLink>
+          // link normal
+          return (
+            <ChakraLink
+              as={NavLink}
+              key={item.name}
+              to={item.to!}
+              _hover={{ textDecor: "none" }}
+            >
+              {item.name}
+            </ChakraLink>
+          );
+        })}
       </HStack>
     </Flex>
   );
