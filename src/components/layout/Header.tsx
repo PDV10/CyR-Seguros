@@ -8,7 +8,6 @@ import {
   MenuButton,
   MenuItem,
   MenuList,
-  Text,
 } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import { Link, NavLink } from "react-router-dom";
@@ -25,12 +24,11 @@ export default function Header() {
     >
       <HStack as={Link} to="/" spacing={3}>
         <Image
-          src="/src/assets/img/home-bg.jpg"
+          src="/public/cyr-logo.png"
           alt="Logo"
-          boxSize="36px"
+          boxSize="100px"
           borderRadius="md"
         />
-        <Text fontWeight="bold">CyR Seguros</Text>
       </HStack>
 
       <HStack spacing={4}>
