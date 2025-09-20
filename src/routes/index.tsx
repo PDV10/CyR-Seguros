@@ -55,8 +55,12 @@ export default function Index() {
               w="full"
               pt={{ base: 4, md: 6 }}
             >
-              {PRODUCT_SUBMENU.map((product) => (
-                <ProductHomeCard key={product.name} product={product} />
+              {PRODUCT_SUBMENU.map((product, i) => (
+                <ProductHomeCard
+                  key={product.name}
+                  product={product}
+                  delay={i * 0.06}
+                />
               ))}
             </Flex>
           </Flex>

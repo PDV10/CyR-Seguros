@@ -14,6 +14,7 @@ import client3 from "../../assets/img/clients/client-3.png";
 import client4 from "../../assets/img/clients/client-4.png";
 import client5 from "../../assets/img/clients/client-5.png";
 import client6 from "../../assets/img/clients/client-6.png";
+import RevealOnScroll from "../animations/RevealOnScroll";
 
 const RouterChakraLink = (props: any) => (
   <ChakraLink as={RouterLink} {...props} />
@@ -63,56 +64,58 @@ export default function NavBarClientes(props: BoxProps) {
   const duplicados = [...visibles, ...visibles];
 
   return (
-    <Box
-      display="flow-root"
-      w="100vw"
-      position="relative"
-      bg="rgba(255, 255, 255, 0.1)"
-      py={4}
-      backdropFilter="blur(4px)"
-      {...props}
-    >
-      <Marquee speed={20} pauseOnHover gradient={false}>
-        {duplicados.map((c, i) => {
-          const isExternal = c.link.startsWith("http");
-          const LinkWrapper = isExternal
-            ? (p: any) => <ChakraLink href={c.link} isExternal {...p} />
-            : (p: any) => <RouterChakraLink to={c.link} {...p} />;
-          return (
-            <LinkWrapper
-              key={`${c.cliente}-${i}`}
-              _hover={{ textDecoration: "none" }}
-            >
-              <Flex
-                align="center"
-                justify="center"
-                rounded="lg"
-                shadow="sm"
-                p={3}
-                mx={5}
-                minW="140px"
-                h="60px"
-                bg="rgba(255, 255, 255, 0.3)"
-                _hover={{
-                  transform: "scale(1.05)",
-                  bg: "rgba(255, 255, 255, 0.6)",
-                }}
-                transition="transform 0.2s ease"
+    <RevealOnScroll delay={0.1}>
+      <Box
+        display="flow-root"
+        w="100vw"
+        position="relative"
+        bg="rgba(255, 255, 255, 0.1)"
+        py={4}
+        backdropFilter="blur(4px)"
+        {...props}
+      >
+        <Marquee speed={20} pauseOnHover gradient={false}>
+          {duplicados.map((c, i) => {
+            const isExternal = c.link.startsWith("http");
+            const LinkWrapper = isExternal
+              ? (p: any) => <ChakraLink href={c.link} isExternal {...p} />
+              : (p: any) => <RouterChakraLink to={c.link} {...p} />;
+            return (
+              <LinkWrapper
+                key={`${c.cliente}-${i}`}
+                _hover={{ textDecoration: "none" }}
               >
-                <Image
-                  src={c.img}
-                  alt={c.cliente}
-                  h="40px"
-                  objectFit="contain"
-                  filter="grayscale(100%)"
-                  _hover={{ filter: "grayscale(0%)" }}
-                  transition="filter 0.2s ease"
-                />
-              </Flex>
-            </LinkWrapper>
-          );
-        })}
-      </Marquee>
-    </Box>
+                <Flex
+                  align="center"
+                  justify="center"
+                  rounded="lg"
+                  shadow="sm"
+                  p={3}
+                  mx={5}
+                  minW="140px"
+                  h="60px"
+                  bg="rgba(255, 255, 255, 0.3)"
+                  _hover={{
+                    transform: "scale(1.05)",
+                    bg: "rgba(255, 255, 255, 0.6)",
+                  }}
+                  transition="transform 0.2s ease"
+                >
+                  <Image
+                    src={c.img}
+                    alt={c.cliente}
+                    h="40px"
+                    objectFit="contain"
+                    filter="grayscale(100%)"
+                    _hover={{ filter: "grayscale(0%)" }}
+                    transition="filter 0.2s ease"
+                  />
+                </Flex>
+              </LinkWrapper>
+            );
+          })}
+        </Marquee>
+      </Box>
+    </RevealOnScroll>
   );
 }

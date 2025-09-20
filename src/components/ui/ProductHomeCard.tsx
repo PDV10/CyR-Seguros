@@ -1,7 +1,11 @@
+// src/components/ui/ProductHomeCard.tsx
 import { Flex, Text, Icon, LinkBox, LinkOverlay } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
+import { motion } from "framer-motion";
 import type { ElementType } from "react";
 import type { NavItem } from "../../config/navigation";
+
+const MotionFlex = motion(Flex);
 
 type ProductItem = Omit<NavItem, "submenu" | "to"> & {
   to: string;
@@ -10,10 +14,15 @@ type ProductItem = Omit<NavItem, "submenu" | "to"> & {
   name: string;
 };
 
-export function ProductHomeCard({ product }: { product: ProductItem }) {
+type Props = {
+  product: ProductItem;
+  delay?: number;
+};
+
+export function ProductHomeCard({ product, delay = 0 }: Props) {
   return (
     <LinkBox as="article" role="group">
-      <Flex
+      <MotionFlex
         direction="column"
         align="flex-start"
         justify="center"
@@ -27,16 +36,18 @@ export function ProductHomeCard({ product }: { product: ProductItem }) {
         w="300px"
         h="220px"
         mx="auto"
-        transition="transform 0.18s ease, box-shadow 0.18s ease"
-        _hover={{ transform: "scale(1.05)", boxShadow: "md" }}
-        shadow="md"
+        whileHover={{ scale: 1.05 }}
+        _hover={{ boxShadow: "md" }}
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: "easeOut", delay }}
       >
         <Icon as={product.icon} boxSize={12} color="lightBlue.400" mb={3} />
-        <Text fontSize="xl" fontWeight="semibold" textAlign="center">
+        <Text fontSize="xl" fontWeight="semibold">
           {product.name}
         </Text>
         {product.descripcion && (
-          <Text fontSize="sm" color="gray.500" textAlign="center" noOfLines={2}>
+          <Text fontSize="sm" color="gray.500" noOfLines={2}>
             {product.descripcion}
           </Text>
         )}
@@ -45,7 +56,7 @@ export function ProductHomeCard({ product }: { product: ProductItem }) {
           to={product.to}
           aria-label={product.name}
         />
-      </Flex>
+      </MotionFlex>
     </LinkBox>
   );
 }
