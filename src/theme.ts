@@ -184,7 +184,7 @@ const theme = extendTheme({
   fonts: {
     body: "'Cocogoose', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Apple Color Emoji', 'Segoe UI Emoji'",
     heading:
-      "'Cocogoose', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Apple Color Emoji', 'Segoe UI Emoji'",
+      "'Raleway', 'Cocogoose', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Apple Color Emoji', 'Segoe UI Emoji'",
     display:
       "'Kenyan Coffee', 'Cocogoose', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial",
   },
