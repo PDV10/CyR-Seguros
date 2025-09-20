@@ -1,11 +1,19 @@
-import { Heading } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 
 export default function ServiciosIndex() {
   return (
     <>
-      <Heading size="lg" mb={4}>
+      <Box
+        minH="100vh"
+        w="full"
+        bgSize="cover"
+        bgPosition="center"
+        bgRepeat="no-repeat"
+        px={{ base: 4, md: 12 }}
+        py={{ base: 8, md: 16 }}
+      >
         Nuestros Servicios
-      </Heading>
+      </Box>
     </>
   );
 }

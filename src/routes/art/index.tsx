@@ -1,10 +1,5 @@
-import { Heading } from "@chakra-ui/react";
+import MainContainer from "../../components/layout/MainContainer";
+
 export default function index() {
-  return (
-    <>
-      <Heading size="lg" mb={4}>
-        ART
-      </Heading>
-    </>
-  );
+  return <MainContainer>ART</MainContainer>;
 }

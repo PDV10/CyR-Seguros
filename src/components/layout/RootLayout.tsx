@@ -20,10 +20,8 @@ export default function RootLayout() {
         <Header />
       </Box>
 
-      <Box as="main" flex="1" pt={2} pb={14}>
-        <Container maxW="1400px" py={4}>
-          <Outlet />
-        </Container>
+      <Box as="main" flex="1">
+        <Outlet />
       </Box>
 
       <Flex
