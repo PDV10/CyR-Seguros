@@ -86,6 +86,7 @@ export default function ProductCardLayout({
             w={{ base: "100%", md: "600px" }}
             objectFit="cover"
             rounded="xl"
+            loading="lazy"
           />
         </Box>
 
