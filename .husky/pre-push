@@ -1,0 +1,13 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "🔎 Ejecutando TypeScript type-check antes del push..."
+npm run type-check
+
+STATUS=$?
+if [ $STATUS -ne 0 ]; then
+  echo "❌ Error: el type-check falló. Corrige los errores antes de hacer push."
+  exit 1
+fi
+
+echo "✅ Type-check completado correctamente. Procediendo con git push..."
