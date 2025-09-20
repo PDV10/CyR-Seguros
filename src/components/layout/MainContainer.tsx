@@ -31,8 +31,7 @@ export default function MainContainer({
       bgSize="cover"
       bgPosition="center"
       bgRepeat="no-repeat"
-      px={{ base: 4, md: 12 }}
-      py={{ base: 8, md: 16 }}
+      pt={{ base: 8, md: 16 }}
     >
       {children}
     </Box>
