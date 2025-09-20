@@ -7,7 +7,7 @@ const config: ThemeConfig = {
 
 const palettes = {
   lightBlue: {
-    50: "#e8f3fa",
+    50: "#f6fafd",
     100: "#cde4f4",
     200: "#a3d0ec",
     300: "#6db3e0",

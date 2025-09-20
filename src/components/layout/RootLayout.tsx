@@ -5,7 +5,7 @@ import Footer from "./Footer";
 
 export default function RootLayout() {
   return (
-    <Flex minH="100vh" direction="column" bg="gray.50">
+    <Flex minH="100vh" direction="column" bg="gray.50" overflowX="hidden">
       <Box
         as="header"
         position="sticky"
@@ -24,20 +24,14 @@ export default function RootLayout() {
         <Outlet />
       </Box>
 
-      <Flex
+      <Box
         as="footer"
-        position="sticky"
-        bottom={0}
-        zIndex="docked"
         bg="white"
         borderTop="1px solid"
-        borderColor="gray.100"
-        h={14}
-        align="center"
-        justify="center"
+        borderColor="lightBlue.100"
       >
         <Footer />
-      </Flex>
+      </Box>
     </Flex>
   );
 }

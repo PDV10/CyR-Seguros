@@ -21,19 +21,37 @@ export default function PorqueElegirnos() {
     {
       titulo: "Asesoramiento personalizado",
       descripcion:
-        "Te guiamos para elegir la cobertura ideal según tu perfil y necesidades, comparando opciones y costos.",
+        "Recibí un acompañamiento cercano en cada paso. Analizamos tu perfil y necesidades para ofrecerte coberturas a medida, ya sea para tu vehículo, hogar, comercio o industria. Nuestro equipo está preparado para ayudarte a tomar decisiones informadas con total tranquilidad.",
       hidden: false,
     },
     {
-      titulo: "Gestión ágil de siniestros",
+      titulo: "Crece con confianza",
       descripcion:
-        "Acompañamiento integral ante un siniestro para que resuelvas rápido y sin fricción.",
+        "Protegé el presente de tu negocio mientras planificás el futuro. Diseñamos soluciones de seguros que te brindan respaldo frente a imprevistos y te permiten concentrarte en hacer crecer tu emprendimiento con seguridad y previsibilidad.",
       hidden: false,
     },
     {
-      titulo: "Más de 15 años de experiencia",
+      titulo: "Asesoramiento en seguros",
       descripcion:
-        "Trayectoria, respaldo y alianzas con aseguradoras líderes del mercado.",
+        "Nuestra experiencia en el mercado asegurador nos permite recomendarte las mejores coberturas de auto, hogar, responsabilidad civil, caución y más. Convertimos un proceso complejo en algo simple, claro y accesible.",
+      hidden: false,
+    },
+    {
+      titulo: "Crecimiento asegurado",
+      descripcion:
+        "Con más de 15 años en el rubro, nos especializamos en proteger lo que más te importa: tu patrimonio, tu familia y tu negocio. Trabajamos con aseguradoras líderes para garantizarte respaldo y solidez en cada póliza.",
+      hidden: false,
+    },
+    {
+      titulo: "Feedback del cliente",
+      descripcion:
+        "Escuchamos tus inquietudes y mejoramos constantemente nuestros servicios. Tu experiencia nos importa, por eso buscamos soluciones que realmente se adapten a tu estilo de vida, con atención rápida y gestión eficiente en cada siniestro.",
+      hidden: false,
+    },
+    {
+      titulo: "Confianza en tus ideas",
+      descripcion:
+        "Creemos que asegurar lo que construiste no debe ser complicado. Te ofrecemos planes claros, precios competitivos y la tranquilidad de contar con un equipo que te acompaña, para que sigas impulsando tus proyectos con seguridad.",
       hidden: false,
     },
   ];
