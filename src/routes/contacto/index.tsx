@@ -1,4 +1,10 @@
 import MainContainer from "../../components/layout/MainContainer";
-export default function index() {
-  return <MainContainer>Contacto</MainContainer>;
+import ContactForm from "../../components/ui/ContactForm";
+
+export default function Index() {
+  return (
+    <MainContainer>
+      <ContactForm />
+    </MainContainer>
+  );
 }
