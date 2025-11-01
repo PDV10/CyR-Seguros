@@ -9,6 +9,7 @@ type MainContainerProps = {
   overlay?: string;
   bgColor?: string;
   px?: number | string | object;
+  py?: number | string | object;
   fadeOut?: boolean;
   fadeHeight?: ResponsiveVal<string>;
 };
@@ -19,6 +20,7 @@ export default function MainContainer({
   overlay,
   bgColor = "gray.50",
   px = { base: 4, md: 12 },
+  py = { base: 8, md: 16 }, // 👈 padding vertical por defecto
   fadeOut = true,
   fadeHeight = { base: "80px", md: "120px" },
 }: MainContainerProps) {
@@ -41,9 +43,9 @@ export default function MainContainer({
       bgPosition="center"
       bgRepeat="no-repeat"
       bgAttachment="fixed"
-      pt={{ base: 8, md: 16 }}
       px={px}
-      pb={fadeOut ? fadeHeight : undefined}
+      py={py} // 👈 se aplica
+      pb={fadeOut ? fadeHeight : undefined} // si querés conservar fade
     >
       {children}
 

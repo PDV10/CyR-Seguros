@@ -24,56 +24,59 @@ export default function QuienesSomos() {
         maxW="container.lg"
         mx="auto"
         textAlign="center"
-        gap={10}
+        gap={8}
       >
         <VStack spacing={4}>
           <Heading size="2xl" color="lightBlue.800">
             ¿Quiénes Somos?
           </Heading>
           <Text fontSize={{ base: "md", md: "lg" }} color="gray.600" maxW="3xl">
-            Bienvenidos a CyR, tu socio estratégico en seguros con más de 15
-            años de trayectoria.
+            En C&R Seguros entendemos que cada persona, familia o empresa tiene
+            una historia distinta, y que protegerla requiere más que un simple
+            seguro: requiere escucha, empatía y acompañamiento real.
           </Text>
         </VStack>
 
-        <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8} textAlign="left">
-          <Text color="gray.700" fontSize="md">
-            Somos un equipo de productores asesores de seguros con amplia
-            experiencia y una sólida alianza con las mejores compañías del
-            mercado. Nuestra especialización abarca una amplia gama de riesgos,
-            adaptándonos a las necesidades específicas de cada sector y
-            actividad.
-          </Text>
-          <Text color="gray.700" fontSize="md">
-            Nuestra misión es ser el aliado que necesitas para potenciar tu
-            crecimiento y proteger lo que más valoras. Te ofrecemos un
-            asesoramiento experto y personalizado para que puedas enfocarte en
-            tus proyectos sin preocuparte por los imprevistos.
-          </Text>
-        </SimpleGrid>
+        <Text color="gray.700" fontSize="md">
+          Por eso, ponemos el foco en un trato cercano y humano, donde la
+          confianza se construye conversando y las soluciones nacen de
+          comprender tus verdaderas necesidades. Creemos que la tecnología debe
+          sumar, no reemplazar: la usamos para ofrecerte un servicio ágil,
+          transparente y eficiente, pero siempre con el respaldo cálido de un
+          asesor que te conoce y está ahí cuando lo necesites.
+        </Text>
+        <Text color="gray.700" fontSize="md">
+          Diseñamos seguros a medida, con la flexibilidad y precisión que cada
+          historia merece. Nuestro propósito es simple: hacerte sentir protegido
+          y acompañado en cada paso, combinando la eficiencia digital con la
+          cercanía humana que nos distingue.
+        </Text>
 
         <HStack spacing={8} justify="center" flexWrap="wrap">
           <VStack maxW="220px" textAlign="center">
             <Icon as={FaHandshake} boxSize={10} color="lightBlue.400" />
             <Text fontWeight="bold">Confianza</Text>
-            <Text fontSize="sm" color="gray.600">
-              Relaciones duraderas basadas en transparencia y compromiso.
+            <Text fontSize="xs" color="gray.600">
+              Construimos vínculos duraderos basados en la honestidad, la
+              transparencia y la atención personalizada.
             </Text>
           </VStack>
 
           <VStack maxW="220px" textAlign="center">
             <Icon as={FaShieldAlt} boxSize={10} color="lightBlue.400" />
             <Text fontWeight="bold">Protección</Text>
-            <Text fontSize="sm" color="gray.600">
-              Coberturas a medida para cada etapa y necesidad.
+            <Text fontSize="xs" color="gray.600">
+              Creamos coberturas que se adaptan a vos, a tu ritmo y a tus
+              prioridades.
             </Text>
           </VStack>
 
           <VStack maxW="220px" textAlign="center">
             <Icon as={FaChartLine} boxSize={10} color="lightBlue.400" />
             <Text fontWeight="bold">Crecimiento</Text>
-            <Text fontSize="sm" color="gray.600">
-              Impulso a tus objetivos con respaldo de aseguradoras líderes.
+            <Text fontSize="xs" color="gray.600">
+              Te acompañamos a proyectar tu futuro con seguridad, respaldo y una
+              atención que evoluciona con vos.
             </Text>
           </VStack>
         </HStack>

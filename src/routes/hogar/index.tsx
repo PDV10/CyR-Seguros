@@ -1,5 +1,5 @@
 import ProductCardLayout from "../../components/ui/ProductCardLayout";
-import hogarImg from "../../assets/img/products/hogar.png";
+import hogarImg from "../../assets/img/products/hogar.jpg";
 import OpcionesDeContratacion from "../../components/ui/OpcionesDeContratacion";
 
 export default function Index() {

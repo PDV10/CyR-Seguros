@@ -36,7 +36,7 @@ export default function Index() {
               maxW="2xl"
               textShadow="0 1px 1px rgba(0,0,0,0.3)"
             >
-              Tu socio estratégico en seguros con más de 15 años de trayectoria.
+              Tu socio estratégico en Seguros.
             </Text>
 
             <Heading
@@ -50,18 +50,24 @@ export default function Index() {
 
             <Flex
               wrap="wrap"
-              gap={{ base: 4, md: 6 }}
+              rowGap={{ base: 3, md: 4 }}
+              columnGap={{ base: 1, md: 2 }}
               justify="center"
               w="full"
               pt={{ base: 4, md: 6 }}
             >
-              {PRODUCT_SUBMENU.map((product, i) => (
-                <ProductHomeCard
-                  key={product.name}
-                  product={product}
-                  delay={i * 0.06}
-                />
-              ))}
+              {PRODUCT_SUBMENU.filter((item) => !item.hidden).map(
+                (product, i) => (
+                  <Flex
+                    key={product.name}
+                    justify="center"
+                    flexBasis={{ base: "100%", sm: "47%", md: "32%" }}
+                    maxW={{ base: "100%", sm: "60%", md: "25%" }}
+                  >
+                    <ProductHomeCard product={product} delay={i * 0.06} />
+                  </Flex>
+                ),
+              )}
             </Flex>
           </Flex>
           <NavBarClientes mt={8} mb={5} />

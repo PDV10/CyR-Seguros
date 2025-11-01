@@ -1,6 +1,6 @@
 // src/routes/seguro-tecnico/index.tsx
 import ProductCardLayout from "../../components/ui/ProductCardLayout";
-import tecnicoImg from "../../assets/img/products/tecnico.png";
+import tecnicoImg from "../../assets/img/products/tecnico.jpg";
 
 export default function SeguroTecnico() {
   return (

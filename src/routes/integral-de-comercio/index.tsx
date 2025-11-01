@@ -1,5 +1,5 @@
 import ProductCardLayout from "../../components/ui/ProductCardLayout";
-import shopImg from "../../assets/img/products/shop.png";
+import shopImg from "../../assets/img/products/shop.jpg";
 
 export default function IntegralDeComercio() {
   return (

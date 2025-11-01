@@ -1,5 +1,5 @@
 import ProductCardLayout from "../../components/ui/ProductCardLayout";
-import vehiculosImg from "../../assets/img/products/vehiculos.png";
+import vehiculosImg from "../../assets/img/products/vehiculos.jpg";
 
 export default function index() {
   return (

@@ -7,6 +7,7 @@ import {
   VStack,
   HStack,
   Icon,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import { TbCheck } from "react-icons/tb";
 import MainContainer from "../layout/MainContainer";
@@ -25,6 +26,7 @@ type ProductCardLayoutProps = {
   rightTitle: string;
   items: FeatureItem[];
   px?: number | string | object;
+  showItemDescription?: boolean;
 };
 
 export default function ProductCardLayout({
@@ -36,84 +38,111 @@ export default function ProductCardLayout({
   rightTitle,
   items,
   px,
+  showItemDescription = true,
 }: ProductCardLayoutProps) {
+  const bg = useColorModeValue("white", "gray.800");
+  const muted = useColorModeValue("gray.600", "gray.300");
+
   return (
-    <MainContainer px={px}>
-      {/* Encabezado */}
+    <MainContainer px={px} py={{ base: 10, md: 16 }}>
       <VStack
         spacing={4}
-        maxW="container.2xl"
+        maxW="container.lg"
         mx="auto"
-        align="center"
+        mb={{ base: 10, md: 16 }}
         textAlign="center"
       >
-        <Heading size="2xl" fontWeight="bold" color="lightBlue.900">
+        <Heading
+          size={{ base: "xl", md: "2xl" }}
+          color="lightBlue.900"
+          lineHeight="1.2"
+        >
           {title}
         </Heading>
-
         {subtitle && (
-          <Heading
-            size={{ base: "sm", md: "md" }}
-            color="lightBlue.900"
-            fontWeight="semibold"
-          >
+          <Text fontSize={{ base: "md", md: "lg" }} color={muted}>
             {subtitle}
-          </Heading>
+          </Text>
         )}
-
         {description && (
-          <Text fontSize={{ base: "md", md: "lg" }} color="gray.500" maxW="5xl">
+          <Text
+            fontSize={{ base: "md", md: "lg" }}
+            color={muted}
+            maxW="4xl"
+            lineHeight="taller"
+          >
             {description}
           </Text>
         )}
       </VStack>
 
-      {/* Contenido */}
       <Flex
-        maxW="container.xl"
-        mx="auto"
-        mt={{ base: 10, md: 16 }}
-        gap={{ base: 8, md: 16 }}
         direction={{ base: "column", md: "row" }}
         align="center"
         justify="center"
+        maxW="container.xl"
+        mx="auto"
+        gap={{ base: 8, md: 12 }}
       >
-        {/* Imagen */}
-        <Box flex="1" display="flex" justifyContent="center">
+        <Box flex={{ base: 1, md: 1 }} w="100%" textAlign="center">
           <Image
             src={imageSrc}
             alt={imageAlt}
-            w={{ base: "100%", md: "600px" }}
+            borderRadius="2xl"
             objectFit="cover"
-            rounded="xl"
-            loading="lazy"
+            boxShadow="xl"
+            w="100%"
+            maxW={{ base: "100%", md: "500px" }}
+            h={{ base: "260px", md: "400px" }}
+            mx="auto"
           />
         </Box>
 
-        {/* Texto y lista */}
-        <VStack flex="1" align="flex-start" spacing={4}>
-          <Heading size="md" color="gray.900" fontWeight="semibold">
-            {rightTitle}
-          </Heading>
+        <Box
+          flex={{ base: 1, md: 1.1 }}
+          bg={bg}
+          borderRadius="2xl"
+          p={{ base: 5, md: 8 }}
+          boxShadow="xl"
+          maxW={{ base: "100%", md: "700px" }}
+          w="100%"
+        >
+          <VStack align="flex-start" spacing={6}>
+            <Heading size="md" color="gray.900">
+              {rightTitle}
+            </Heading>
 
-          <VStack align="stretch" spacing={2}>
-            {items.map((item) => (
-              <HStack key={item.title} align="start" spacing={3}>
-                <Icon as={TbCheck} color="lightBlue.400" boxSize={6} mt="2px" />
-                <VStack align="start" spacing={0}>
-                  <Text fontWeight="bold" color="gray.700">
-                    {item.title}:
-                  </Text>
-                  {item.description && (
-                    <Text fontSize="md" color="gray.600">
-                      {item.description}
+            <Flex wrap="wrap" gap={{ base: 4, md: 5 }}>
+              {items.map((item) => (
+                <HStack
+                  key={item.title}
+                  align="flex-start"
+                  spacing={3}
+                  flexBasis={{ base: "100%", sm: "48%" }}
+                  flexGrow={0}
+                  flexShrink={0}
+                >
+                  <Icon
+                    as={TbCheck}
+                    color="lightBlue.500"
+                    boxSize={5}
+                    mt="6px"
+                  />
+                  <VStack align="flex-start" spacing={1}>
+                    <Text fontWeight="semibold" color="gray.800">
+                      {item.title}
                     </Text>
-                  )}
-                </VStack>
-              </HStack>
-            ))}
+                    {showItemDescription && item.description && (
+                      <Text fontSize="sm" color={muted}>
+                        {item.description}
+                      </Text>
+                    )}
+                  </VStack>
+                </HStack>
+              ))}
+            </Flex>
           </VStack>
-        </VStack>
+        </Box>
       </Flex>
     </MainContainer>
   );

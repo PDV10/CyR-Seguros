@@ -20,39 +20,39 @@ type Item = {
 export default function PorqueElegirnos() {
   const items: Item[] = [
     {
-      titulo: "Asesoramiento personalizado",
+      titulo: "🧭 Te acompañamos en cada decisión",
       descripcion:
-        "Recibí un acompañamiento cercano en cada paso. Analizamos tu perfil y necesidades para ofrecerte coberturas a medida, ya sea para tu vehículo, hogar, comercio o industria. Nuestro equipo está preparado para ayudarte a tomar decisiones informadas con total tranquilidad.",
+        "Recibí un asesoramiento cercano y transparente. Analizamos tus necesidades para ofrecerte coberturas a medida, y te ayudamos a tomar decisiones con tranquilidad y confianza.",
       hidden: false,
     },
     {
-      titulo: "Crece con confianza",
+      titulo: "📈 Crece con confianza",
       descripcion:
-        "Protegé el presente de tu negocio mientras planificás el futuro. Diseñamos soluciones de seguros que te brindan respaldo frente a imprevistos y te permiten concentrarte en hacer crecer tu emprendimiento con seguridad y previsibilidad.",
+        "Diseñamos soluciones de seguros que te respaldan frente a imprevistos y te permiten enfocarte en lo que realmente importa: hacer crecer tu proyecto.",
       hidden: false,
     },
     {
-      titulo: "Asesoramiento en seguros",
+      titulo: "💡 Experiencia que simplifica lo complejo",
       descripcion:
-        "Nuestra experiencia en el mercado asegurador nos permite recomendarte las mejores coberturas de auto, hogar, responsabilidad civil, caución y más. Convertimos un proceso complejo en algo simple, claro y accesible.",
+        "Nuestro conocimiento del mercado nos permite recomendarte las mejores coberturas, de forma clara y accesible. Convertimos un proceso técnico en algo simple y comprensible.",
       hidden: false,
     },
     {
-      titulo: "Crecimiento asegurado",
+      titulo: "🏢 Solidez y respaldo asegurado",
       descripcion:
-        "Con más de 15 años en el rubro, nos especializamos en proteger lo que más te importa: tu patrimonio, tu familia y tu negocio. Trabajamos con aseguradoras líderes para garantizarte respaldo y solidez en cada póliza.",
+        "Trabajamos junto a aseguradoras reconocidas y un equipo comprometido para brindarte la seguridad de que tus bienes y tu futuro están protegidos.",
       hidden: false,
     },
     {
-      titulo: "Feedback del cliente",
+      titulo: "💬 Tu opinión nos impulsa",
       descripcion:
-        "Escuchamos tus inquietudes y mejoramos constantemente nuestros servicios. Tu experiencia nos importa, por eso buscamos soluciones que realmente se adapten a tu estilo de vida, con atención rápida y gestión eficiente en cada siniestro.",
+        "Escuchamos tus inquietudes y mejoramos cada día nuestros servicios. Buscamos ofrecerte respuestas rápidas, atención personalizada y soluciones reales.",
       hidden: false,
     },
     {
-      titulo: "Confianza en tus ideas",
+      titulo: "🤝 Aseguramos tus ideas, sin complicaciones",
       descripcion:
-        "Creemos que asegurar lo que construiste no debe ser complicado. Te ofrecemos planes claros, precios competitivos y la tranquilidad de contar con un equipo que te acompaña, para que sigas impulsando tus proyectos con seguridad.",
+        "Creemos que proteger lo que construís no debe ser complejo. Te ofrecemos planes claros, precios competitivos y el respaldo de un equipo que te acompaña en cada paso.",
       hidden: false,
     },
   ];

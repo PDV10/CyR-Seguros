@@ -60,6 +60,7 @@ export const PRODUCT_SUBMENU: (Omit<NavItem, "submenu"> & {
     to: ROUTES.construccion,
     icon: TbBuilding,
     descripcion: "Trabajá con seguridad",
+    hidden: true,
   },
   {
     name: "Integral De Comercio",
@@ -72,6 +73,7 @@ export const PRODUCT_SUBMENU: (Omit<NavItem, "submenu"> & {
     to: ROUTES.art,
     icon: TbHealthRecognition,
     descripcion: "Cuidamos a tu equipo",
+    hidden: true,
   },
   {
     name: "Seguro Técnico",
@@ -84,6 +86,7 @@ export const PRODUCT_SUBMENU: (Omit<NavItem, "submenu"> & {
     to: ROUTES.caucion,
     icon: TbFileCertificate,
     descripcion: "Garantías y cauciones",
+    hidden: true,
   },
 ];
 
@@ -93,7 +96,7 @@ export const PRODUCT_SUBMENU: (Omit<NavItem, "submenu"> & {
 export const NAV_ITEMS: NavItem[] = [
   { name: "Inicio", to: ROUTES.home },
   { name: "Productos", submenu: PRODUCT_SUBMENU },
-  { name: "Servicios", to: ROUTES.servicios },
+  { name: "Servicios", to: ROUTES.servicios, hidden: true },
   { name: "Quiénes Somos", to: ROUTES.nosotros },
   { name: "Contacto", to: ROUTES.contacto },
 ];
