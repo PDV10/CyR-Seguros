@@ -6,7 +6,6 @@ import {
   HStack,
   Icon,
   Button,
-  SimpleGrid,
 } from "@chakra-ui/react";
 import { FaHandshake, FaShieldAlt, FaChartLine } from "react-icons/fa";
 import MainContainer from "../../components/layout/MainContainer";
