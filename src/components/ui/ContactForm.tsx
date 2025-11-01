@@ -9,14 +9,11 @@ import {
   Tooltip,
   IconButton,
   Button,
-  Link as ChakraLink,
-  Icon,
   Heading,
   Text,
 } from "@chakra-ui/react";
 import { useState, useCallback, type ChangeEvent, type FormEvent } from "react";
 import { TbEraser, TbSend } from "react-icons/tb";
-import { FaWhatsapp } from "react-icons/fa";
 import RevealOnScroll from "../animations/RevealOnScroll";
 
 export type ContactFormValues = {
@@ -33,15 +30,12 @@ type ContactFormProps = {
   submitLabel?: string;
   showWhatsAppFab?: boolean;
   whatsappHref?: string;
-  /** Permite ocultar el bloque introductorio si alguna pantalla no lo necesita */
   showIntro?: boolean;
 };
 
 export default function ContactForm({
   onSubmit,
   submitLabel = "Enviar",
-  showWhatsAppFab = true,
-  whatsappHref = "https://api.whatsapp.com/send?phone=5491155820489&text=Hola%2C%20me%20gustar%C3%ADa%20recibir%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20seguros.%20%C2%BFPodr%C3%ADan%20asesorarme%3F",
   showIntro = true,
 }: ContactFormProps) {
   const [values, setValues] = useState<ContactFormValues>({
@@ -207,31 +201,6 @@ export default function ContactForm({
           </Flex>
         </Box>
       </Flex>
-
-      {showWhatsAppFab && (
-        <ChakraLink
-          href={whatsappHref}
-          isExternal
-          position="fixed"
-          bottom="24px"
-          right="24px"
-          bg="green.500"
-          color="white"
-          borderRadius="full"
-          w="60px"
-          h="60px"
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-          _hover={{ bg: "green.600", transform: "scale(1.05)" }}
-          boxShadow="lg"
-          transition="all 0.2s ease-in-out"
-          zIndex={1000}
-          aria-label="Contactar por WhatsApp"
-        >
-          <Icon as={FaWhatsapp} boxSize={7} />
-        </ChakraLink>
-      )}
     </RevealOnScroll>
   );
 }
