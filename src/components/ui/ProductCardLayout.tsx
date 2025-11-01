@@ -7,8 +7,11 @@ import {
   VStack,
   HStack,
   Icon,
+  Skeleton,
   useColorModeValue,
+  AspectRatio,
 } from "@chakra-ui/react";
+import { useState } from "react";
 import { TbCheck } from "react-icons/tb";
 import MainContainer from "../layout/MainContainer";
 
@@ -42,6 +45,7 @@ export default function ProductCardLayout({
 }: ProductCardLayoutProps) {
   const bg = useColorModeValue("white", "gray.800");
   const muted = useColorModeValue("gray.600", "gray.300");
+  const [imgLoaded, setImgLoaded] = useState(false);
 
   return (
     <MainContainer px={px} py={{ base: 10, md: 16 }}>
@@ -84,18 +88,29 @@ export default function ProductCardLayout({
         mx="auto"
         gap={{ base: 8, md: 12 }}
       >
-        <Box flex={{ base: 1, md: 1 }} w="100%" textAlign="center">
-          <Image
-            src={imageSrc}
-            alt={imageAlt}
-            borderRadius="2xl"
-            objectFit="cover"
-            boxShadow="xl"
+        <Box flex={{ base: 1, md: "0 0 520px" }} w="100%" textAlign="center">
+          <AspectRatio
+            ratio={3 / 2}
             w="100%"
-            maxW={{ base: "100%", md: "500px" }}
-            h={{ base: "260px", md: "400px" }}
+            maxW={{ base: "100%", md: "520px" }}
             mx="auto"
-          />
+            borderRadius="2xl"
+          >
+            <Skeleton isLoaded={imgLoaded} borderRadius="2xl">
+              <Image
+                src={imageSrc}
+                alt={imageAlt}
+                objectFit="cover"
+                borderRadius="2xl"
+                boxShadow="xl"
+                w="100%"
+                h="100%"
+                loading="lazy"
+                decoding="async"
+                onLoad={() => setImgLoaded(true)}
+              />
+            </Skeleton>
+          </AspectRatio>
         </Box>
 
         <Box
@@ -106,6 +121,7 @@ export default function ProductCardLayout({
           boxShadow="xl"
           maxW={{ base: "100%", md: "700px" }}
           w="100%"
+          minH={{ base: "auto", md: "347px" }}
         >
           <VStack align="flex-start" spacing={6}>
             <Heading size="md" color="gray.900">

@@ -1,5 +1,5 @@
 import ProductCardLayout from "../../components/ui/ProductCardLayout";
-import respCivilImg from "../../assets/img/products/respcivil.jpg";
+import respCivilImg from "../../assets/img/products/respcivil.webp";
 
 export default function ResponsabilidadCivil() {
   return (
