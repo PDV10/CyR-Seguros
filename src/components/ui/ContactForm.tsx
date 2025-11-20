@@ -11,10 +11,12 @@ import {
   Button,
   Heading,
   Text,
+  useToast,
 } from "@chakra-ui/react";
 import { useState, useCallback, type ChangeEvent, type FormEvent } from "react";
 import { TbEraser, TbSend } from "react-icons/tb";
 import RevealOnScroll from "../animations/RevealOnScroll";
+import emailjs from "emailjs-com";
 
 export type ContactFormValues = {
   nombre: string;
@@ -24,6 +26,10 @@ export type ContactFormValues = {
   celular: string;
   mensaje: string;
 };
+
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 type ContactFormProps = {
   onSubmit?: (values: ContactFormValues) => void;
@@ -47,20 +53,15 @@ export default function ContactForm({
     mensaje: "",
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const toast = useToast();
+
   const handleChange = useCallback(
     (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
       const { name, value } = e.target;
       setValues((prev) => ({ ...prev, [name]: value }));
     },
-    [],
-  );
-
-  const handleSubmit = useCallback(
-    (e: FormEvent<HTMLFormElement>) => {
-      e.preventDefault();
-      onSubmit?.(values);
-    },
-    [onSubmit, values],
+    []
   );
 
   const reset = useCallback(() => {
@@ -73,6 +74,57 @@ export default function ContactForm({
       mensaje: "",
     });
   }, []);
+
+  const handleSubmit = useCallback(
+    async (e: FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+
+      onSubmit?.(values);
+      setIsSubmitting(true);
+
+      try {
+        const templateParams = {
+          from_name: `${values.nombre} ${values.apellido}`,
+          from_email: values.mail,
+          localidad: values.localidad || "-",
+          celular: values.celular || "-",
+          mensaje: values.mensaje,
+        };
+
+        await emailjs.send(
+          EMAILJS_SERVICE_ID,
+          EMAILJS_TEMPLATE_ID,
+          templateParams,
+          EMAILJS_PUBLIC_KEY
+        );
+
+        toast({
+          title: "Mensaje enviado",
+          description:
+            "Gracias por contactarte. Te responderemos a la brevedad.",
+          status: "success",
+          duration: 5000,
+          isClosable: true,
+        });
+
+        reset();
+      } catch (error) {
+        console.error("EmailJS error:", error);
+
+        toast({
+          title: "Error",
+          description:
+            "Hubo un problema al enviar el mensaje. Intentá nuevamente.",
+          status: "error",
+          duration: 5000,
+          isClosable: true,
+        });
+      } finally {
+        setIsSubmitting(false);
+      }
+    },
+    [onSubmit, values, toast, reset]
+  );
 
   return (
     <RevealOnScroll delay={0.3}>
@@ -188,6 +240,7 @@ export default function ContactForm({
                 colorScheme="gray"
                 onClick={reset}
                 icon={<TbEraser size={20} />}
+                isDisabled={isSubmitting}
               />
             </Tooltip>
             <Button
@@ -195,6 +248,8 @@ export default function ContactForm({
               colorScheme="blue"
               rightIcon={<TbSend size={18} />}
               size="md"
+              isLoading={isSubmitting}
+              loadingText="Enviando..."
             >
               {submitLabel}
             </Button>
