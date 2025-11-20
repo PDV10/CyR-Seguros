@@ -85,12 +85,12 @@ export default function Footer() {
             Email:{" "}
             <ChakraLink
               as="span"
-              href="https://mail.google.com/mail/?view=cm&fs=1&to=asesoresdeseguroscontacto@gmail.com&su=Consulta%20sobre%20seguros&body=Hola%2C%20me%20gustaría%20recibir%20más%20información%20sobre%20sus%20seguros."
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=contacto@cyrseguros.com&su=Consulta%20sobre%20seguros&body=Hola%2C%20me%20gustaría%20recibir%20más%20información%20sobre%20sus%20seguros."
               isExternal
               _hover={{ color: "lightBlue.400" }}
               fontWeight="normal"
             >
-              asesoresdeseguroscontacto@gmail.com
+              contacto@cyrseguros.com
             </ChakraLink>
           </Text>
         </VStack>
