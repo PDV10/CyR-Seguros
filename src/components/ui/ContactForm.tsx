@@ -81,6 +81,9 @@ export default function ContactForm({
 
       onSubmit?.(values);
       setIsSubmitting(true);
+      console.log("EMAILJS_SERVICE_ID", EMAILJS_SERVICE_ID);
+      console.log("EMAILJS_TEMPLATE_ID", EMAILJS_TEMPLATE_ID);
+      console.log("EMAILJS_PUBLIC_KEY", EMAILJS_PUBLIC_KEY);
 
       try {
         const templateParams = {
