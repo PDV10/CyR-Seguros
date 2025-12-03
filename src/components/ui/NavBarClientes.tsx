@@ -8,12 +8,16 @@ import {
 import Marquee from "react-fast-marquee";
 import { Link as RouterLink } from "react-router-dom";
 
-import client1 from "../../assets/img/clients/client-1.png";
-import client2 from "../../assets/img/clients/client-2.png";
-import client3 from "../../assets/img/clients/client-3.png";
-import client4 from "../../assets/img/clients/client-4.png";
-import client5 from "../../assets/img/clients/client-5.png";
-import client6 from "../../assets/img/clients/client-6.png";
+import client1 from "../../assets/img/clients/logo-allianz.webp";
+import client2 from "../../assets/img/clients/logo-barbuss.webp";
+import client3 from "../../assets/img/clients/logo-experta.webp";
+import client4 from "../../assets/img/clients/logo-federancion-patronal.webp";
+import client5 from "../../assets/img/clients/logo-galicia-seguros.webp";
+import client6 from "../../assets/img/clients/logo-holando.webp";
+import client7 from "../../assets/img/clients/logo-integrity-seguros.webp";
+import client8 from "../../assets/img/clients/logo-mercantil-andina.webp";
+import client9 from "../../assets/img/clients/logo-pacifico-seguros.webp";
+import client10 from "../../assets/img/clients/logo-rivadavia-seguros.webp";
 import RevealOnScroll from "../animations/RevealOnScroll";
 
 const RouterChakraLink = (props: any) => (
@@ -23,40 +27,64 @@ const RouterChakraLink = (props: any) => (
 export default function NavBarClientes(props: BoxProps) {
   const clientes = [
     {
-      cliente: "Myob",
+      cliente: "Allianz",
       img: client1,
       hidden: false,
-      link: "https://www.myob.com",
+      link: "https://www.allianz.com.ar",
     },
     {
-      cliente: "Belimo",
+      cliente: "Barbuss",
       img: client2,
       hidden: false,
-      link: "https://www.belimo.com",
+      link: "https://barbuss.com/ar/",
     },
     {
-      cliente: "LifeGroups",
+      cliente: "Experta Seguros",
       img: client3,
       hidden: false,
-      link: "/clientes/lifegroups",
+      link: "https://www.experta.com.ar/",
     },
     {
-      cliente: "Grabyo",
+      cliente: "Federación Patronal",
       img: client4,
       hidden: false,
-      link: "https://www.grabyo.com",
+      link: "https://www.fedpat.com.ar",
     },
     {
-      cliente: "Citrus",
+      cliente: "Galicia Seguros",
       img: client5,
       hidden: false,
-      link: "https://www.citrus.com",
+      link: "https://www.galiciaseguros.com.ar/",
     },
     {
-      cliente: "Trustly",
+      cliente: "Holando",
       img: client6,
       hidden: false,
-      link: "https://www.trustly.net",
+      link: "https://www.laholando.com/",
+    },
+    {
+      cliente: "Integrity Seguros",
+      img: client7,
+      hidden: false,
+      link: "https://www.integrityseguros.com.ar",
+    },
+    {
+      cliente: "La Mercantil Andina",
+      img: client8,
+      hidden: false,
+      link: "https://www.mercantilandina.com.ar",
+    },
+    {
+      cliente: "Pacífico Seguros",
+      img: client9,
+      hidden: false,
+      link: "https://www.pacificoseguros.com.ar",
+    },
+    {
+      cliente: "Rivadavia Seguros",
+      img: client10,
+      hidden: false,
+      link: "https://www.segurosrivadavia.com",
     },
   ];
 
@@ -104,7 +132,8 @@ export default function NavBarClientes(props: BoxProps) {
                   <Image
                     src={c.img}
                     alt={c.cliente}
-                    h="40px"
+                    h="46px"
+                    maxW="110px"
                     objectFit="contain"
                     filter="grayscale(100%)"
                     _hover={{ filter: "grayscale(0%)" }}
