@@ -1,4 +1,3 @@
-// src/components/layout/Footer.tsx
 import {
   Flex,
   Box,
@@ -8,10 +7,32 @@ import {
   Link as ChakraLink,
   VStack,
   Divider,
+  Image,
 } from "@chakra-ui/react";
+import { Link as RouterLink } from "react-router-dom";
 import { FaFacebookF, FaInstagram, FaWhatsapp } from "react-icons/fa";
 
 export default function Footer() {
+  const scrollToTopAnimated = (duration = 600) => {
+    const start = window.scrollY;
+    const startTime = performance.now();
+
+    const animateScroll = (currentTime: number) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+
+      const ease = 1 - Math.pow(1 - progress, 3);
+
+      window.scrollTo(0, start * (1 - ease));
+
+      if (progress < 1) {
+        requestAnimationFrame(animateScroll);
+      }
+    };
+
+    requestAnimationFrame(animateScroll);
+  };
+
   return (
     <Box
       as="footer"
@@ -31,11 +52,23 @@ export default function Footer() {
         maxW="container.xl"
         mx="auto"
       >
-        {/* Lado izquierdo */}
         <VStack align="flex-start" spacing={3}>
-          <Text fontWeight="bold" fontSize="xl" color="lightBlue.800">
-            C y R
-          </Text>
+          <ChakraLink
+            as={RouterLink}
+            to="/"
+            _hover={{ textDecoration: "none" }}
+            onClick={() => scrollToTopAnimated(700)}
+          >
+            <Image
+              src="/cyr-logo.png"
+              alt="Logo"
+              h="64px"
+              w="auto"
+              maxH="100%"
+              objectFit="contain"
+            />
+          </ChakraLink>
+
           <Text fontSize="sm" maxW="sm">
             Seguinos en nuestras redes sociales para más contenido.
           </Text>
@@ -65,7 +98,6 @@ export default function Footer() {
           </HStack>
         </VStack>
 
-        {/* Lado derecho */}
         <VStack align="flex-start" spacing={1} fontSize="sm">
           <Text fontSize="md" fontWeight="Bold" color="lightBlue.800">
             Contáctanos
