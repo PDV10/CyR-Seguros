@@ -10,10 +10,14 @@ import {
 import { FaHandshake, FaShieldAlt, FaChartLine } from "react-icons/fa";
 import MainContainer from "../../components/layout/MainContainer";
 import Ubicacion from "../../components/ui/Ubicacion";
+import { useNavigate } from "react-router-dom";
 
 export default function QuienesSomos() {
+  const navigate = useNavigate();
+
   const handleContactClick = () => {
-    window.location.href = "/contacto";
+    navigate("/contacto");
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
